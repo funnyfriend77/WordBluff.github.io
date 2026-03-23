@@ -256,8 +256,8 @@ function revealResults() {
   const listEl = document.getElementById('revealPlayerList');
   listEl.innerHTML = '';
 
-  // 2-column grid wrapper
-  listEl.className = 'grid grid-cols-2 gap-2';
+  // 2-column grid wrapper with scrolling
+  listEl.className = 'grid grid-cols-2 gap-2 max-h-[40vh] overflow-y-auto pr-1';
 
   state.players.forEach(p => {
     const cell  = document.createElement('div');
@@ -271,7 +271,6 @@ function revealResults() {
       <span class="text-xs font-bold uppercase tracking-wider mt-1 ${
         isImp ? 'text-red-400' : 'text-green-400'
       }">${isImp ? 'Impostor' : 'Innocent'}</span>
-      <span class="text-xs text-zinc-400 mt-0.5 truncate w-full">${p.word}</span>
     `;
     listEl.appendChild(cell);
   });
