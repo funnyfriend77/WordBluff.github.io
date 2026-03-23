@@ -162,9 +162,10 @@ function startGame() {
   const errEl         = document.getElementById('settingsError');
 
   // Validation
-  if (isNaN(totalPlayers)  || totalPlayers  < 3) return showError(errEl, 'Need at least 3 players.');
-  if (isNaN(impostorCount) || impostorCount < 1) return showError(errEl, 'Need at least 1 impostor.');
-  if (impostorCount >= totalPlayers)             return showError(errEl, 'Impostors must be fewer than players.');
+  if (isNaN(totalPlayers)  || totalPlayers  < 3)  return showError(errEl, 'Need at least 3 players.');
+  if (totalPlayers > 20)                           return showError(errEl, 'Maximum 20 players allowed.');
+  if (isNaN(impostorCount) || impostorCount < 1)  return showError(errEl, 'Need at least 1 impostor.');
+  if (impostorCount >= totalPlayers)              return showError(errEl, 'Impostors must be fewer than players.');
 
   const secretWord = pickRandom(WORD_BANK[category]);
 
@@ -255,22 +256,24 @@ function revealResults() {
   const listEl = document.getElementById('revealPlayerList');
   listEl.innerHTML = '';
 
+  // 2-column grid wrapper
+  listEl.className = 'grid grid-cols-2 gap-2';
+
   state.players.forEach(p => {
-    const row   = document.createElement('div');
+    const cell  = document.createElement('div');
     const isImp = p.role === 'impostor';
-    row.className = `rounded-xl px-4 py-3 flex items-center justify-between animate-slide-up ${
+    cell.className = `rounded-xl px-3 py-2 flex flex-col items-center text-center animate-slide-up ${
       isImp ? 'badge-impostor' : 'badge-innocent'
     }`;
-    row.innerHTML = `
-      <div class="flex items-center gap-3">
-        <span class="text-lg">${isImp ? '🕵️' : '😇'}</span>
-        <span class="font-semibold text-sm text-white">${p.name}</span>
-      </div>
-      <span class="text-xs font-bold uppercase tracking-wider ${isImp ? 'text-red-400' : 'text-green-400'}">
-        ${isImp ? 'IMPOSTOR' : 'Innocent'}
-      </span>
+    cell.innerHTML = `
+      <span class="text-base mb-0.5">${isImp ? '🕵️' : '😇'}</span>
+      <span class="font-semibold text-xs text-white leading-tight">${p.name}</span>
+      <span class="text-xs font-bold uppercase tracking-wider mt-1 ${
+        isImp ? 'text-red-400' : 'text-green-400'
+      }">${isImp ? 'Impostor' : 'Innocent'}</span>
+      <span class="text-xs text-zinc-400 mt-0.5 truncate w-full">${p.word}</span>
     `;
-    listEl.appendChild(row);
+    listEl.appendChild(cell);
   });
 
   document.getElementById('revealWordSection').classList.remove('hidden');
