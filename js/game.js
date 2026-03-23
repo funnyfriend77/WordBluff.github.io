@@ -8,9 +8,55 @@
 
 // ── Word Bank ──────────────────────────────────────────────
 const WORD_BANK = {
-  food:    ['Pizza', 'Sushi', 'Taco', 'Burger', 'Ramen', 'Waffle', 'Croissant', 'Dumpling'],
-  animals: ['Lion', 'Penguin', 'Elephant', 'Giraffe', 'Octopus', 'Platypus', 'Chameleon', 'Narwhal'],
-  objects: ['Telescope', 'Umbrella', 'Toaster', 'Hammer', 'Compass', 'Hourglass', 'Periscope', 'Binoculars'],
+  'Travel & Places': [
+    'Airport', 'Cruise Ship', 'Campground', 'Hotel Lobby', 'Space Station', 'Amusement Park', 'Ski Resort', 'Beach', 'Underground Bunker', 'Train Station',
+    'Subway', 'Lighthouse', 'Museum', 'Library', 'Gym', 'Movie Theater', 'Castle', 'Bridge', 'National Park', 'Zoo',
+    'Aquarium', 'Post Office', 'Police Station', 'Fire Station', 'Hospital', 'University', 'Farm', 'Vineyard', 'Mountain', 'Island',
+    'City Square', 'Palace', 'Temple', 'Pyramid', 'Desert', 'Jungle', 'Tundra', 'Swamp', 'Canyon', 'Valley',
+    'Waterfall', 'Cave', 'Port', 'Marina', 'Observatory', 'Planetarium', 'Orchard', 'Greenhouse', 'Stadium', 'Casino', 'Art Gallery',
+  ],
+  'Occupations': [
+    'Surgeon', 'Librarian', 'Astronaut', 'Diver', 'Firefighter', 'Detective', 'Barista', 'Athlete', 'Archaeologist', 'Pilot',
+    'Teacher', 'Lawyer', 'Chef', 'Engineer', 'Artist', 'Musician', 'Nurse', 'Scientist', 'Farmer', 'Carpenter',
+    'Electrician', 'Plumber', 'Baker', 'Photographer', 'Reporter', 'Writer', 'Actor', 'Dancer', 'Judge', 'Politician',
+    'Banker', 'Soldier', 'Sailor', 'Mechanic', 'Tailor', 'Barber', 'Dentist', 'Vet', 'Pharmacist', 'Architect',
+    'Truck Driver', 'Cashier', 'Janitor', 'Security Guard', 'Waiter', 'Flight Attendant', 'Coach', 'Programmer', 'Designer', 'Model', 'Butler',
+  ],
+  'Food & Drink': [
+    'Pizza', 'Sushi', 'Taco', 'Burger', 'Pancakes', 'Spaghetti', 'Ice Cream', 'Salad', 'Steak', 'Burrito',
+    'Donut', 'Bagel', 'Croissant', 'Omelette', 'Soup', 'Sandwich', 'Hot Dog', 'Fries', 'Nachos', 'Wings',
+    'Lobster', 'Crab', 'Shrimp', 'Salmon', 'Rice', 'Pasta', 'Bread', 'Cheese', 'Egg', 'Bacon',
+    'Sausage', 'Chicken', 'Beef', 'Pork', 'Lamb', 'Tofu', 'Beans', 'Lentils', 'Potato', 'Onion',
+    'Garlic', 'Pepper', 'Tomato', 'Lettuce', 'Spinach', 'Broccoli', 'Carrot', 'Apple', 'Banana', 'Waffles', 'Smoothie',
+  ],
+  'Animals': [
+    'Lion', 'Penguin', 'Elephant', 'Giraffe', 'Shark', 'Eagle', 'Kangaroo', 'Octopus', 'Wolf', 'Sloth',
+    'Tiger', 'Bear', 'Zebra', 'Monkey', 'Gorilla', 'Chimpanzee', 'Lemur', 'Panda', 'Koala', 'Platypus',
+    'Dolphin', 'Whale', 'Seal', 'Walrus', 'Otter', 'Beaver', 'Squirrel', 'Rabbit', 'Fox', 'Coyote',
+    'Deer', 'Elk', 'Moose', 'Horse', 'Cow', 'Pig', 'Sheep', 'Goat', 'Chicken', 'Duck',
+    'Turkey', 'Owl', 'Hawk', 'Parrot', 'Flamingo', 'Peacock', 'Swan', 'Turtle', 'Snake', 'Frog', 'Crocodile',
+  ],
+  'Hobbies': [
+    'Gardening', 'Video Games', 'Knitting', 'Photography', 'Painting', 'Fishing', 'Hiking', 'Cooking', 'Surfing', 'Chess',
+    'Drawing', 'Writing', 'Reading', 'Sewing', 'Woodworking', 'Pottery', 'Origami', 'Yoga', 'Meditation', 'Running',
+    'Cycling', 'Swimming', 'Dancing', 'Singing', 'Acting', 'Magic', 'Puzzles', 'Board Games', 'Camping', 'Bird Watching',
+    'Astronomy', 'Collecting', 'Baking', 'Brewing', 'Wine Tasting', 'Traveling', 'Language Learning', 'Volunteering', 'Skating', 'Skiing',
+    'Snowboarding', 'Sailing', 'Kayaking', 'Rock Climbing', 'Weightlifting', 'Martial Arts', 'Boxing', 'Golf', 'Tennis', 'Basketball', 'Soccer',
+  ],
+  'Science & Tech': [
+    'Microscope', 'Telescope', 'DNA', 'Magnet', 'Robot', 'Electricity', 'Planet', 'Skeleton', 'Gravity', 'Atom',
+    'Laser', 'Battery', 'Engine', 'Circuit', 'Satellite', 'Rocket', 'Spaceship', 'Submarine', 'Compass', 'Prism',
+    'Lens', 'Test Tube', 'Beaker', 'Flask', 'Bunsen Burner', 'Periodic Table', 'Molecule', 'Proton', 'Neutron', 'Electron',
+    'Galaxy', 'Nebula', 'Black Hole', 'Supernova', 'Asteroid', 'Comet', 'Meteor', 'Calculator', 'Computer', 'Phone',
+    'Internet', 'AI', 'VR', 'AR', 'Quantum', 'Fusion', 'Fission', 'Nanotech', 'Wifi', 'Blockchain', 'Algorithm',
+  ],
+  'Household Items': [
+    'Microwave', 'Vacuum', 'Toaster', 'Mirror', 'Curtains', 'Toothbrush', 'Fridge', 'Hammer', 'Pillow', 'Remote',
+    'Blender', 'Washing Machine', 'Dryer', 'Dishwasher', 'Oven', 'Coffee Maker', 'Kettle', 'Lamp', 'Clock', 'Sofa',
+    'Bookshelf', 'Table', 'Chair', 'Desk', 'Bed', 'Wardrobe', 'Rug', 'Fan', 'Heater', 'Iron',
+    'Mop', 'Broom', 'Bucket', 'Sponge', 'Soap', 'Towel', 'Comb', 'Razor', 'Shampoo', 'Key',
+    'Wallet', 'Glasses', 'Watch', 'Pen', 'Scissors', 'Tape', 'Flashlight', 'Candle', 'Vase', 'Frame', 'Umbrella',
+  ],
 };
 
 // ── Central State ──────────────────────────────────────────
@@ -22,7 +68,7 @@ let state = {
   settings: {
     totalPlayers: 4,
     impostorCount: 1,
-    category: 'food',
+    category: 'Food & Drink',
   },
 };
 
