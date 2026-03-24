@@ -1,5 +1,5 @@
 /* ============================================================
-   WordBluff.io — Game Engine
+   Word-Bluff.com — Game Engine
    ============================================================ */
 
 // ── Tailwind Config (must run before Tailwind CDN parses) ──
